@@ -8,6 +8,8 @@ import { AboutComponent } from './component/about/about.component';
 import { ContactUsComponent } from './component/contact-us/contact-us.component';
 import { LoginComponent } from './component/login/login.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -16,11 +18,13 @@ import { NavbarComponent } from './component/navbar/navbar.component';
     AboutComponent,
     ContactUsComponent,
     LoginComponent,
-    NavbarComponent
+    NavbarComponent,
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
