@@ -1,45 +1,95 @@
 <div class="login-container">
-
   <div class="login-card">
 
-    <h2>Login</h2>
+    <h2>Login Form</h2>
+    <p class="subtitle">Please enter your details</p>
 
     <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
 
+      <!-- Name -->
       <div class="form-group">
-        <label>Name</label>
+        <label for="name">Name</label>
 
         <input
+          id="name"
           type="text"
           formControlName="name"
-          placeholder="Enter name"
+          placeholder="Enter your name"
         />
+
+        <div
+          class="error"
+          *ngIf="
+            loginForm.get('name')?.touched &&
+            loginForm.get('name')?.invalid
+          "
+        >
+          Name is required.
+        </div>
       </div>
 
+      <!-- Email -->
       <div class="form-group">
-        <label>Email</label>
+        <label for="email">Email</label>
 
         <input
+          id="email"
           type="email"
           formControlName="email"
-          placeholder="Enter email"
+          placeholder="Enter your email"
         />
+
+        <div
+          class="error"
+          *ngIf="
+            loginForm.get('email')?.touched &&
+            loginForm.get('email')?.invalid
+          "
+        >
+          <span *ngIf="loginForm.get('email')?.errors?.['required']">
+            Email is required.
+          </span>
+
+          <span *ngIf="loginForm.get('email')?.errors?.['email']">
+            Please enter a valid email.
+          </span>
+        </div>
       </div>
 
+      <!-- Password -->
       <div class="form-group">
-        <label>Password</label>
+        <label for="password">Password</label>
 
         <input
+          id="password"
           type="password"
           formControlName="password"
-          placeholder="Enter password"
+          placeholder="Enter your password"
         />
+
+        <div
+          class="error"
+          *ngIf="
+            loginForm.get('password')?.touched &&
+            loginForm.get('password')?.invalid
+          "
+        >
+          <span *ngIf="loginForm.get('password')?.errors?.['required']">
+            Password is required.
+          </span>
+
+          <span *ngIf="loginForm.get('password')?.errors?.['minlength']">
+            Password must be at least 6 characters.
+          </span>
+        </div>
       </div>
 
-      <button type="submit">Login</button>
+      <!-- Submit Button -->
+      <button type="submit" class="login-btn">
+        Login
+      </button>
 
     </form>
 
   </div>
-
 </div>
