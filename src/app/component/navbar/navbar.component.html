@@ -1,28 +1,35 @@
 <nav class="navbar">
 
+  <!-- Logo -->
   <div class="logo">
     SBI
   </div>
 
-  <ul class="nav-links">
+  <!-- Hamburger Button -->
+  <button class="menu-btn" (click)="isMenuOpen = !isMenuOpen">
+    ☰
+  </button>
+
+  <!-- Navigation Links -->
+  <ul class="nav-links" [class.active]="isMenuOpen">
+
     <li>
-      <a routerLink="">Home</a>
+      <a routerLink="" (click)="isMenuOpen = false">Home</a>
     </li>
 
     <li>
-      <a routerLink="/about">About</a>
+      <a routerLink="/about" (click)="isMenuOpen = false">About</a>
     </li>
 
     <li>
-      <a routerLink="/contact">Contact Us</a>
+      <a routerLink="/contact" (click)="isMenuOpen = false">Contact Us</a>
     </li>
 
     <li>
-      <a routerLink="/login">Login</a>
+      <a routerLink="/login" (click)="isMenuOpen = false">Login</a>
     </li>
+
   </ul>
-
-
 
 </nav>
 
